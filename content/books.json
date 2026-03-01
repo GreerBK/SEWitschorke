@@ -1,0 +1,25 @@
+{
+  "books": [
+    {
+      "title": "The R.U.I.N.S. at Fiddlefern",
+      "image": "/images/book-1.jpg",
+      "description": "When twelve-year-old Macy discovers a hidden map inside an old library book, she and her best friend venture into the mysterious ruins behind Fiddlefern Farm. What they uncover is a secret that has been buried for over a century — one that will change everything they thought they knew about their small town.",
+      "year": "2010",
+      "category": "Middle Grade"
+    },
+    {
+      "title": "Looking for Stardust",
+      "image": "/images/book-2.jpg",
+      "description": "Thirteen-year-old Ellie has always believed the universe holds answers to life’s biggest questions. After her grandmother passes away, Ellie embarks on a journey guided by a series of handwritten letters, each one leading her closer to understanding what her grandmother meant by “looking for stardust.”",
+      "year": "2017",
+      "category": "Middle Grade"
+    },
+    {
+      "title": "Queens and Kings",
+      "image": "/images/book-3.jpg",
+      "description": "In a world where power is inherited and loyalty is tested, sixteen-year-old Ava must navigate the treacherous politics of a crumbling kingdom. When an ancient prophecy names her as the one who will restore balance, Ava must decide whether to accept her destiny or forge a new path entirely.",
+      "year": "2021",
+      "category": "Young Adult"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import galleryData from "@/content/gallery.json"
 
 /* ─── Real US state SVG outlines from public domain map data ─── */
 interface StateOutline {
@@ -42,63 +43,6 @@ interface GalleryItem {
   state: string
   blurb: string
 }
-
-const galleryItems: GalleryItem[] = [
-  {
-    image: "/images/gallery-coffee-1.jpg",
-    alt: "Latte art in a cafe",
-    state: "Vermont",
-    blurb: "Found the coziest coffee shops tucked into the Green Mountains.",
-  },
-  {
-    image: "/images/gallery-coffee-2.jpg",
-    alt: "Cappuccino with latte art",
-    state: "Minnesota",
-    blurb: "A warm cup on a cold Minneapolis morning. The land of 10,000 lakes never disappoints.",
-  },
-  {
-    image: "/images/gallery-food-1.jpg",
-    alt: "French macarons",
-    state: "Texas",
-    blurb: "Austin's bakery scene keeps getting better. These macarons were perfection.",
-  },
-  {
-    image: "/images/gallery-food-2.jpg",
-    alt: "Chocolate dessert with raspberries",
-    state: "New York",
-    blurb: "A dessert worthy of the city that never sleeps. Manhattan magic on a plate.",
-  },
-  {
-    image: "/images/gallery-travel-1.jpg",
-    alt: "Austin skyline at sunset",
-    state: "Texas",
-    blurb: "Home sweet home. The Austin skyline at golden hour never gets old.",
-  },
-  {
-    image: "/images/gallery-travel-2.jpg",
-    alt: "Vermont fall foliage",
-    state: "Vermont",
-    blurb: "Autumn in Vermont is a painter's dream. Every road is a postcard.",
-  },
-  {
-    image: "/images/gallery-dog.jpg",
-    alt: "Happy dog in the park",
-    state: "Nebraska",
-    blurb: "A visit back to the heartland. Nebraska always feels like coming home.",
-  },
-  {
-    image: "/images/gallery-maine.jpg",
-    alt: "Maine coastline",
-    state: "Maine",
-    blurb: "Rocky shores and lighthouse views. Maine's coast is wild and wonderful.",
-  },
-  {
-    image: "/images/gallery-nyc.jpg",
-    alt: "New York City street",
-    state: "New York",
-    blurb: "A New Yorker at heart. The energy of the city is unmatched.",
-  },
-]
 
 function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?: boolean }) {
   const [hovered, setHovered] = useState(false)
@@ -142,7 +86,7 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
         </svg>
 
         {/* State name */}
-        <p className="font-sans font-bold text-sm md:text-base text-primary-foreground tracking-wider uppercase">
+        <p className="font-sans font-normal text-sm md:text-base text-primary-foreground tracking-wider uppercase">
           {item.state}
         </p>
 
@@ -158,7 +102,7 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
 export function GalleryGrid() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-      {galleryItems.map((item, idx) => (
+      {(galleryData.items as GalleryItem[]).map((item, idx) => (
         <GalleryCard key={idx} item={item} priority={idx === 0} />
       ))}
     </div>

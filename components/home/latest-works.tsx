@@ -1,11 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-
-const books = [
-  { title: "The R.U.I.N.S. at Fiddlefern", image: "/images/book-1.jpg", href: "/books" },
-  { title: "Looking for Stardust", image: "/images/book-2.jpg", href: "/books" },
-  { title: "Queens and Kings", image: "/images/book-3.jpg", href: "/books" },
-]
+import books from "@/content/books.json"
 
 export function LatestWorks() {
   return (
@@ -16,10 +11,10 @@ export function LatestWorks() {
         </h2>
 
         <div className="flex flex-wrap items-start justify-center gap-8 md:gap-12">
-          {books.map((book) => (
+          {books.books.map((book) => (
             <Link
               key={book.title}
-              href={book.href}
+              href="/books"
               className="group flex flex-col items-center text-center w-36 md:w-40"
             >
               <div className="relative w-28 h-40 md:w-32 md:h-44 shadow-md transition-transform group-hover:scale-105">

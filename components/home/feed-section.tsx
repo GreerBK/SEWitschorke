@@ -1,3 +1,5 @@
+import siteData from "@/content/site.json"
+
 export function FeedSection() {
   return (
     <section className="pb-14 md:pb-20 bg-background">
@@ -9,13 +11,13 @@ export function FeedSection() {
               Substack Feed
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Follow along for essays on writing, travel stories, and foodie adventures.
+              {siteData.substackDescription}
             </p>
             <a
-              href="#"
+              href={siteData.substackUrl}
               className="inline-block mt-4 text-sm text-primary hover:text-teal-dark transition-colors underline underline-offset-4"
             >
-              Read on Substack
+              {siteData.substackText}
             </a>
           </div>
 
@@ -25,13 +27,13 @@ export function FeedSection() {
               Social Media Feed
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              See the latest photos and updates from travels, meals, and book events.
+              {siteData.socialDescription}
             </p>
             <a
-              href="#"
+              href={siteData.socialUrl}
               className="inline-block mt-4 text-sm text-primary hover:text-teal-dark transition-colors underline underline-offset-4"
             >
-              Follow on Instagram
+              {siteData.socialText}
             </a>
           </div>
         </div>

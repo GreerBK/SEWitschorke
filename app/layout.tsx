@@ -6,10 +6,8 @@ import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 
 /*
- * Custom fonts: Balgin (display headings) and Sinclaire (body/italic)
- * Upload your .woff2/.ttf/.otf files to /public/fonts/ and update the src paths below.
- * Currently using Playfair Display and Cormorant Garamond as fallback Google Fonts
- * loaded via @font-face in globals.css until the custom files are provided.
+ * Custom fonts: Balgin (display/headings) and Sinclaire (body/serif)
+ * Font files in /public/fonts/, loaded via @font-face in globals.css.
  */
 
 export const metadata: Metadata = {

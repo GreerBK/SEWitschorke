@@ -1,0 +1,30 @@
+{
+  "bio": [
+    "SE doesn't remember a time when she couldn't read and spent many hours perusing the local library's shelves. Starting at a young age, she made up her own stories, mostly those with a romantic nature or about law enforcing women. But it wasn't until February 14, 2008 that she fell in love with writing while at a teacher's training. As a result, SE began writing for the middle grade and young adult market.",
+    "In 2010, SE won the Writer's League of Texas Middle Grade manuscript contest. She won the same contest in 2017. She is a current member of The Society of Children's Book Writers and Illustrators.",
+    "SE was born in Neligh, Nebraska, but her family moved to Texas when she was a toddler. She grew up in central Texas and then attended Texas Lutheran University where she earned a BA degree in Elementary Education.",
+    "Fond of a Bohemian lifestyle, SE lived briefly in Maine, Montreal, Boston, and Vermont, and identifies as a New Yorker in spirit but no matter how far away she roams, she calls Austin, TX home. She is still an avid reader but these days frequents the local book store. SE is a foodie, both with eating at home and dining out, and can be found attending musical theater or catching a New York Yankees game when she's not writing."
+  ],
+  "awards": [
+    {
+      "year": "2010",
+      "title": "Writers' League of Texas Middle Grade Manuscript Contest Winner",
+      "work": "The R.U.I.N.S. at Fiddlefern"
+    },
+    {
+      "year": "2017",
+      "title": "Writers' League of Texas Middle Grade Manuscript Contest Winner",
+      "work": "Looking for Stardust"
+    },
+    {
+      "year": "2021",
+      "title": "Writers' League of Texas Young Adult Manuscript Contest Winner",
+      "work": "Queens and Kings"
+    }
+  ],
+  "foodPhotos": [
+    { "image": "/images/about-food-1.jpg", "alt": "Chocolate raspberry macarons" },
+    { "image": "/images/about-food-2.jpg", "alt": "Artisan pastries" },
+    { "image": "/images/gallery-food-1.jpg", "alt": "French macarons" }
+  ]
+}

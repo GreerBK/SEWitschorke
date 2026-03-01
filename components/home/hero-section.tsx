@@ -1,4 +1,5 @@
 import Image from "next/image"
+import siteData from "@/content/site.json"
 
 export function HeroSection() {
   return (
@@ -6,7 +7,7 @@ export function HeroSection() {
       {/* Hero Background Image */}
       <div className="relative h-[420px] md:h-[520px]">
         <Image
-          src="/images/hero-waterfront.jpg"
+          src={siteData.heroImage}
           alt="Scenic waterfront view"
           fill
           className="object-cover"
@@ -21,8 +22,8 @@ export function HeroSection() {
             {/* Author Image */}
             <div className="relative w-40 h-52 md:w-52 md:h-64 shrink-0 rounded overflow-hidden shadow-lg border-2 border-card">
               <Image
-                src="/images/author-portrait.jpg"
-                alt="SE Witschorke, Author"
+                src={siteData.authorImage}
+                alt={`${siteData.title}, Author`}
                 fill
                 className="object-cover"
               />
@@ -32,8 +33,13 @@ export function HeroSection() {
             <div className="ml-6 md:ml-10 pb-2 text-primary-foreground">
               <span className="text-4xl md:text-5xl font-serif leading-none text-sage-light">&ldquo;</span>
               <blockquote className="font-serif italic text-base md:text-lg text-primary-foreground/90 max-w-md leading-relaxed -mt-4 ml-2">
-                Stories live in the spaces between the places we go and the people we meet.
+                {siteData.heroQuote}
               </blockquote>
+              {siteData.heroQuoteAttribution && (
+                <p className="ml-2 mt-2 text-sm text-sage-light italic">
+                  — {siteData.heroQuoteAttribution}
+                </p>
+              )}
             </div>
           </div>
         </div>

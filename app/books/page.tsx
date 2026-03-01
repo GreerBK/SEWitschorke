@@ -1,39 +1,14 @@
 import Image from "next/image"
 import type { Metadata } from "next"
+import booksData from "@/content/books.json"
 
 export const metadata: Metadata = {
   title: "Books | SE Witschorke",
   description: "Browse the books by SE Witschorke - middle grade and young adult fiction.",
 }
 
-const books = [
-  {
-    title: "The R.U.I.N.S. at Fiddlefern",
-    image: "/images/book-1.jpg",
-    description:
-      "When twelve-year-old Macy discovers a hidden map inside an old library book, she and her best friend venture into the mysterious ruins behind Fiddlefern Farm. What they uncover is a secret that has been buried for over a century \u2014 one that will change everything they thought they knew about their small town.",
-    year: "2010",
-    category: "Middle Grade",
-  },
-  {
-    title: "Looking for Stardust",
-    image: "/images/book-2.jpg",
-    description:
-      "Thirteen-year-old Ellie has always believed the universe holds answers to life\u2019s biggest questions. After her grandmother passes away, Ellie embarks on a journey guided by a series of handwritten letters, each one leading her closer to understanding what her grandmother meant by \u201Clooking for stardust.\u201D",
-    year: "2017",
-    category: "Middle Grade",
-  },
-  {
-    title: "Queens and Kings",
-    image: "/images/book-3.jpg",
-    description:
-      "In a world where power is inherited and loyalty is tested, sixteen-year-old Ava must navigate the treacherous politics of a crumbling kingdom. When an ancient prophecy names her as the one who will restore balance, Ava must decide whether to accept her destiny or forge a new path entirely.",
-    year: "2021",
-    category: "Young Adult",
-  },
-]
-
 export default function BooksPage() {
+  const books = booksData.books
   return (
     <section className="py-14 md:py-20 bg-background">
       <div className="mx-auto max-w-3xl px-6">
@@ -68,7 +43,7 @@ export default function BooksPage() {
                 {/* Book Details */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-baseline gap-3 flex-wrap">
-                    <h3 className="text-xl md:text-2xl font-sans font-bold text-foreground">
+                    <h3 className="text-xl md:text-2xl font-sans font-normal text-foreground">
                       {book.title}
                     </h3>
                     <span className="text-xs text-muted-foreground font-sans tracking-wider uppercase">
