@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+/* Josefin Sans as Balgin stand-in until the Balgin font file is uploaded */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+/* Sinclaire - self-hosted */
+@font-face {
+  font-family: 'Sinclaire';
+  src: url('/fonts/Sinclaire-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+ * BALGIN FONT SETUP
+ * Upload your Balgin font file(s) to /public/fonts/ and add @font-face here:
+ *
+ * @font-face {
+ *   font-family: 'Balgin';
+ *   src: url('/fonts/Balgin-Regular.woff2') format('woff2');
+ *   font-weight: 400;
+ *   font-style: normal;
+ *   font-display: swap;
+ * }
+ * @font-face {
+ *   font-family: 'Balgin';
+ *   src: url('/fonts/Balgin-Bold.woff2') format('woff2');
+ *   font-weight: 700;
+ *   font-style: normal;
+ *   font-display: swap;
+ * }
+ *
+ * Then update --font-sans below:
+ *   --font-sans: 'Balgin', 'Josefin Sans', sans-serif;
+ */
+
+:root {
+  /* Tranquil Waters + Ocean Breeze palette */
+  --background: #fafaf8;
+  --foreground: #1a2a2a;
+  --card: #ffffff;
+  --card-foreground: #1a2a2a;
+  --popover: #ffffff;
+  --popover-foreground: #1a2a2a;
+  --primary: #2d6a60;
+  --primary-foreground: #fafaf8;
+  --secondary: #c4d9c8;
+  --secondary-foreground: #1a2a2a;
+  --muted: #eef3ef;
+  --muted-foreground: #5a7a6a;
+  --accent: #8a96cc;
+  --accent-foreground: #1a2a2a;
+  --destructive: #c44;
+  --destructive-foreground: #fff;
+  --border: #d4ddd6;
+  --input: #d4ddd6;
+  --ring: #2d6a60;
+  --radius: 0.375rem;
+
+  /* Custom palette tokens */
+  --teal-dark: #1e4d46;
+  --teal: #2d6a60;
+  --teal-mid: #5a9a8a;
+  --sage: #7fb8a4;
+  --sage-light: #c4d9c8;
+  --lavender: #b8b4d0;
+  --blue-light: #8a96cc;
+  --navy: #4a5488;
+  --gold: #c8a832;
+}
+
+@theme inline {
+  /* Josefin Sans as Balgin stand-in; Sinclaire is now self-hosted */
+  --font-sans: 'Josefin Sans', 'Georgia', sans-serif;
+  --font-serif: 'Sinclaire', 'Raleway', 'Georgia', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-teal-dark: var(--teal-dark);
+  --color-teal: var(--teal);
+  --color-teal-mid: var(--teal-mid);
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --color-lavender: var(--lavender);
+  --color-blue-light: var(--blue-light);
+  --color-navy: var(--navy);
+  --color-gold: var(--gold);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
