@@ -22,7 +22,7 @@ export function HeroSection() {
             <span className="block text-4xl font-serif leading-none text-sage-light select-none mb-1">
               &ldquo;
             </span>
-            <blockquote className="font-serif italic text-base text-primary-foreground leading-relaxed max-w-[300px] drop-shadow-md">
+            <blockquote className="font-serif italic text-lg text-primary-foreground leading-relaxed max-w-[300px] drop-shadow-md">
               Stories live in the spaces between the places we go and the people we meet.
             </blockquote>
           </div>
@@ -79,7 +79,7 @@ export function HeroSection() {
             <span className="block text-5xl md:text-6xl lg:text-7xl font-serif leading-none text-sage-light select-none mb-2">
               &ldquo;
             </span>
-            <blockquote className="font-serif italic text-base md:text-lg lg:text-xl text-primary-foreground/95 leading-relaxed">
+            <blockquote className="font-serif italic text-lg md:text-xl lg:text-2xl text-primary-foreground/95 leading-relaxed">
               Stories live in the spaces between the places we go and the people we meet.
             </blockquote>
           </div>
