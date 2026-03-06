@@ -14,7 +14,7 @@ function strokeWidthFromViewBox(viewBox: string, fraction = 0.02): number {
 }
 
 function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?: boolean }) {
-  const [hovered, setHovered] = useState(false)
+  const [active, setActive] = useState(false)
   const [imgError, setImgError] = useState(false)
   const outline = getStateOutline(item.state)
   const strokeWidth = strokeWidthFromViewBox(outline.viewBox)
@@ -22,10 +22,11 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
   return (
     <div
       className="relative aspect-square overflow-hidden rounded cursor-pointer group"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
-      onBlur={() => setHovered(false)}
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+      onClick={() => setActive((prev) => !prev)}
+      onFocus={() => setActive(true)}
+      onBlur={() => setActive(false)}
       tabIndex={0}
       role="figure"
       aria-label={`${item.alt} - ${item.state}: ${item.blurb}`}
@@ -46,16 +47,15 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
         </div>
       )}
 
-      {/* Hover overlay: highlight with state outline and blurb */}
+      {/* Hover / tap overlay: state outline and blurb */}
       <div
-        className={`absolute inset-0 bg-teal-dark/75 flex flex-col items-center justify-center p-4 text-center transition-opacity duration-300 ${
-          hovered ? "opacity-100" : "opacity-0"
+        className={`absolute inset-0 bg-teal-dark/75 flex flex-col items-center justify-center p-3 md:p-4 text-center transition-opacity duration-300 ${
+          active ? "opacity-100" : "opacity-0"
         }`}
       >
-        {/* State outline SVG */}
         <svg
           viewBox={outline.viewBox}
-          className="w-16 h-16 md:w-20 md:h-20 mb-2 flex-shrink-0"
+          className="w-12 h-12 md:w-20 md:h-20 mb-1.5 md:mb-2 flex-shrink-0"
           fill="none"
           stroke="white"
           strokeWidth={strokeWidth}
@@ -65,14 +65,19 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
           <path d={outline.path} fill="white" fillOpacity="0.15" />
         </svg>
 
-        {/* State name */}
-        <p className="font-sans font-bold text-sm md:text-base text-primary-foreground tracking-wider uppercase">
+        <p className="font-sans font-bold text-xs md:text-base text-primary-foreground tracking-wider uppercase">
           {item.state}
         </p>
 
-        {/* Blurb */}
-        <p className="font-serif italic text-xs md:text-sm text-sage-light mt-2 leading-relaxed max-w-[200px]">
+        <p className="font-serif italic text-[11px] md:text-sm text-sage-light mt-1 md:mt-2 leading-snug md:leading-relaxed max-w-[160px] md:max-w-[200px]">
           {item.blurb}
+        </p>
+      </div>
+
+      {/* Mobile hint: small state label at bottom */}
+      <div className={`absolute bottom-0 inset-x-0 bg-teal-dark/60 py-1 text-center sm:hidden transition-opacity duration-300 ${active ? "opacity-0" : "opacity-100"}`}>
+        <p className="font-sans text-[10px] text-primary-foreground/90 tracking-wider uppercase">
+          {item.state}
         </p>
       </div>
     </div>
@@ -81,7 +86,7 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
 
 export function GalleryGrid({ items }: { items: GalleryItem[] }) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
       {items.map((item, idx) => (
         <GalleryCard key={item.state} item={item} priority={idx === 0} />
       ))}

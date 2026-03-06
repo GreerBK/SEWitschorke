@@ -16,7 +16,7 @@ export default function GalleryPage() {
           Gallery
         </h2>
         <p className="text-center text-muted-foreground text-sm font-serif mb-12">
-          Hover over a photo to discover the story behind it
+          Tap or hover over a photo to discover the story behind it
         </p>
 
         <GalleryGrid items={items} />

@@ -20,7 +20,7 @@ export function SiteHeader() {
       <div className="mx-auto max-w-4xl px-6 py-6 text-center">
         {/* Site Title */}
         <Link href="/" className="inline-block">
-          <h1 className="text-3xl md:text-4xl font-sans font-bold tracking-[0.25em] text-foreground uppercase">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-sans font-bold tracking-[0.15em] sm:tracking-[0.25em] text-foreground uppercase">
             SE Witschorke
           </h1>
           <p className="font-serif italic text-muted-foreground text-sm md:text-base mt-1 tracking-wide">
