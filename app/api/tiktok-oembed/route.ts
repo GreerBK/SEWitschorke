@@ -1,3 +1,5 @@
+export const dynamic = "force-static"
+
 import { NextResponse } from "next/server"
 
 const TIKTOK_PROFILE_URL = "https://www.tiktok.com/@sweetnsavory61"

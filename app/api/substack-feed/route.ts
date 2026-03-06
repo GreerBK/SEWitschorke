@@ -1,3 +1,5 @@
+export const dynamic = "force-static"
+
 import { NextResponse } from "next/server"
 
 const SUBSTACK_RSS = "https://sewitschorke.substack.com/feed"
