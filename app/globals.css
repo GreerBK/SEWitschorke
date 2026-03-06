@@ -3,78 +3,33 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─── Sinclaire (body / serif) ─── */
+/* Creato Display - reading/body text */
 @font-face {
-  font-family: 'Sinclaire';
-  src: url('/fonts/Sinclaire-Bold.woff2') format('woff2'),
-       url('/fonts/Sinclaire-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ─── Balgin (display / headings) ─── */
-@font-face {
-  font-family: 'Balgin';
-  src: url('/fonts/Balgin-ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Balgin';
-  src: url('/fonts/Balgin-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Balgin';
-  src: url('/fonts/Balgin-Regular.ttf') format('truetype');
+  font-family: 'Creato Display';
+  src: url('/fonts/CreatoDisplay-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Balgin';
-  src: url('/fonts/Balgin-Regular-Italic.ttf') format('truetype');
+  font-family: 'Creato Display';
+  src: url('/fonts/CreatoDisplay-RegularItalic.otf') format('opentype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Balgin';
-  src: url('/fonts/Balgin-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Balgin';
-  src: url('/fonts/Balgin-Bold-Italic.ttf') format('truetype');
+  font-family: 'Creato Display';
+  src: url('/fonts/CreatoDisplay-Bold.otf') format('opentype');
   font-weight: 700;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
 }
 
-/* Balgin width variants */
+/* Wolfpack - titles and headings */
 @font-face {
-  font-family: 'Balgin Sm Expanded';
-  src: url('/fonts/Balgin-ExtraLight-SmExpanded.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Balgin Sm Expanded';
-  src: url('/fonts/Balgin-Regular-SmExpanded.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Balgin Condensed';
-  src: url('/fonts/Balgin-Regular-Condensed.ttf') format('truetype');
+  font-family: 'Wolfpack';
+  src: url('/fonts/wolfpack-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -116,9 +71,9 @@
 }
 
 @theme inline {
-  /* Balgin for display/headings; Sinclaire for serif/body */
-  --font-sans: 'Balgin', sans-serif;
-  --font-serif: 'Sinclaire', 'Georgia', serif;
+  /* Wolfpack = titles/headings; Creato Display = reading/body */
+  --font-sans: 'Wolfpack', 'Georgia', sans-serif;
+  --font-serif: 'Creato Display', 'Georgia', serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -152,6 +107,22 @@
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 6px);
+}
+
+/* Nav tab underline: expand from center using scale */
+@keyframes nav-underline-expand {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+.nav-tab-underline {
+  width: 100%;
+  transform-origin: center;
+  animation: nav-underline-expand 0.25s ease-out forwards;
 }
 
 @layer base {

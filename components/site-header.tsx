@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import siteData from "@/content/site.json"
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -21,11 +20,11 @@ export function SiteHeader() {
       <div className="mx-auto max-w-4xl px-6 py-6 text-center">
         {/* Site Title */}
         <Link href="/" className="inline-block">
-          <h1 className="text-3xl md:text-4xl font-sans font-extralight tracking-[0.25em] text-foreground uppercase">
-            {siteData.title}
+          <h1 className="text-3xl md:text-4xl font-sans font-bold tracking-[0.25em] text-foreground uppercase">
+            SE Witschorke
           </h1>
-          <p className="font-serif text-muted-foreground text-sm md:text-base mt-1 tracking-wide">
-            {siteData.subtitle}
+          <p className="font-serif italic text-muted-foreground text-sm md:text-base mt-1 tracking-wide">
+            Author &ndash; Foodie &ndash; Traveler
           </p>
         </Link>
 
@@ -57,21 +56,28 @@ export function SiteHeader() {
           aria-label="Main navigation"
         >
           <ul className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`text-sm tracking-wider uppercase transition-colors hover:text-primary ${
-                    pathname === link.href
-                      ? "text-primary border-b-2 border-primary pb-0.5"
-                      : "text-foreground"
-                  }`}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((link) => {
+              const isActive = pathname === link.href
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`relative inline-block pb-0.5 text-sm tracking-wider uppercase transition-colors hover:text-primary ${
+                      isActive ? "text-primary" : "text-foreground"
+                    }`}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute bottom-0 left-1/2 h-0.5 bg-primary ${
+                        isActive ? "nav-tab-underline" : "w-0 -translate-x-1/2"
+                      }`}
+                      aria-hidden
+                    />
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </nav>
       </div>

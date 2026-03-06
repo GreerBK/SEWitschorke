@@ -1,14 +1,10 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 
-/*
- * Custom fonts: Balgin (display/headings) and Sinclaire (body/serif)
- * Font files in /public/fonts/, loaded via @font-face in globals.css.
- */
+/* Fonts: Wolfpack (titles) and Creato Display (reading) are self-hosted in globals.css. */
 
 export const metadata: Metadata = {
   title: 'SE Witschorke | Author - Foodie - Traveler',
@@ -22,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
+      <body className="font-serif antialiased">
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

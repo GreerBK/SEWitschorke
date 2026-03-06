@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { GalleryGrid } from "@/components/gallery/gallery-grid"
+import { getGalleryItems } from "@/lib/gallery-descriptions"
 
 export const metadata: Metadata = {
   title: "Gallery | SE Witschorke",
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default function GalleryPage() {
+  const items = getGalleryItems()
   return (
     <section className="py-14 md:py-20 bg-background">
       <div className="mx-auto max-w-5xl px-6">
@@ -17,7 +19,7 @@ export default function GalleryPage() {
           Hover over a photo to discover the story behind it
         </p>
 
-        <GalleryGrid />
+        <GalleryGrid items={items} />
       </div>
     </section>
   )
