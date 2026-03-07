@@ -10,14 +10,20 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   const items = getGalleryItems()
   return (
-    <section className="py-14 md:py-20 bg-background">
+    <section className="py-16 md:py-24 bg-background">
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-center font-serif italic text-3xl md:text-4xl text-foreground mb-4">
-          Gallery
-        </h2>
-        <p className="text-center text-muted-foreground text-sm font-serif mb-12">
-          Tap or hover over a photo to discover the story behind it
-        </p>
+        <div className="text-center mb-12 md:mb-16">
+          <p className="font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+            Wanderlust
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl text-foreground">
+            Gallery
+          </h2>
+          <p className="text-muted-foreground text-sm font-serif mt-3">
+            Tap or hover to discover the story behind each photo
+          </p>
+          <div className="mt-4 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
+        </div>
 
         <GalleryGrid items={items} />
       </div>
