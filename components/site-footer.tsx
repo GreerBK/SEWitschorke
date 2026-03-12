@@ -1,9 +1,6 @@
 export function SiteFooter() {
   return (
     <footer className="bg-teal-dark text-primary-foreground">
-      {/* Gold divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
-
       <div className="mx-auto max-w-5xl px-6 py-12 md:py-16">
         <div className="text-center">
           {/* Logo */}

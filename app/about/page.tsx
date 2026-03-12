@@ -36,7 +36,6 @@ export default function AboutPage() {
           <h2 className="font-display text-4xl md:text-5xl text-primary-foreground">
             About SE
           </h2>
-          <div className="mt-4 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         </div>
       </section>
 
@@ -110,7 +109,6 @@ export default function AboutPage() {
             <h2 className="font-display text-3xl md:text-4xl text-primary-foreground">
               Awards
             </h2>
-            <div className="mt-4 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
           </div>
 
           <div className="max-w-2xl mx-auto space-y-6">
@@ -143,7 +141,6 @@ export default function AboutPage() {
             <h2 className="font-display text-3xl md:text-4xl text-foreground">
               Snapshots
             </h2>
-            <div className="mt-4 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">

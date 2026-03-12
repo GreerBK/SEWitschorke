@@ -19,8 +19,6 @@ export function LatestWorks() {
           <h2 className="font-display text-4xl md:text-5xl text-foreground">
             Latest Works
           </h2>
-          {/* Decorative gold rule */}
-          <div className="mt-4 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         </div>
 
         {/* Book grid — larger covers with hover effects */}

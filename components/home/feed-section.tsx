@@ -13,7 +13,6 @@ export function FeedSection() {
           <h2 className="font-display text-4xl md:text-5xl text-foreground">
             From the Desk
           </h2>
-          <div className="mt-4 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">

@@ -22,7 +22,6 @@ export default function GalleryPage() {
           <p className="text-muted-foreground text-sm font-serif mt-3">
             Tap or hover to discover the story behind each photo
           </p>
-          <div className="mt-4 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         </div>
 
         <GalleryGrid items={items} />

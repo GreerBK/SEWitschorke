@@ -68,8 +68,6 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
           {item.state}
         </p>
 
-        <div className="mt-1.5 w-6 h-px bg-gold/60" />
-
         <p className="font-serif italic text-[10px] md:text-sm text-sage-light/90 mt-2 leading-snug max-w-[140px] md:max-w-[180px]">
           {item.blurb}
         </p>

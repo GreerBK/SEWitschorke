@@ -48,7 +48,6 @@ export default function BooksPage() {
           <p className="text-sage-light/70 text-sm font-serif mt-3">
             A selection of works by SE Witschorke
           </p>
-          <div className="mt-4 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         </div>
       </section>
 

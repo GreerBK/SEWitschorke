@@ -16,18 +16,18 @@ export function HeroSection() {
               className="object-cover object-bottom"
               priority
             />
+            <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-sage-light/50 font-serif">
+              Headshot by{" "}
+              <a
+                href="https://www.jdswiger.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-sage-light/80 transition-colors"
+              >
+                JD Swiger
+              </a>
+            </p>
           </div>
-          <p className="pb-3 pt-2 text-[10px] text-sage-light/50 font-serif">
-            Headshot by{" "}
-            <a
-              href="https://www.jdswiger.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-sage-light/80 transition-colors"
-            >
-              JD Swiger
-            </a>
-          </p>
         </div>
 
         {/* Right panel — waterfront photo with quote */}
@@ -83,7 +83,7 @@ export function HeroSection() {
         </div>
 
         {/* Teal strip with portrait */}
-        <div className="bg-teal-dark flex flex-col items-center pt-6 pb-3">
+        <div className="bg-teal-dark flex flex-col items-center pt-6">
           <div className="relative w-40 h-52">
             <Image
               src="/images/about/author-portrait-home.png"
@@ -92,18 +92,18 @@ export function HeroSection() {
               className="object-cover object-bottom"
               priority
             />
+            <p className="absolute bottom-2 left-0 right-0 text-center text-[9px] text-sage-light/50 font-serif">
+              Headshot by{" "}
+              <a
+                href="https://www.jdswiger.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-sage-light/80 transition-colors"
+              >
+                JD Swiger
+              </a>
+            </p>
           </div>
-          <p className="mt-2 text-[9px] text-sage-light/50 font-serif">
-            Headshot by{" "}
-            <a
-              href="https://www.jdswiger.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2"
-            >
-              JD Swiger
-            </a>
-          </p>
         </div>
       </div>
     </section>

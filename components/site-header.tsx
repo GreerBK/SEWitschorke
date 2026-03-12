@@ -16,21 +16,21 @@ export function SiteHeader() {
   ]
 
   return (
-    <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+    <header className="bg-teal-dark sticky top-0 z-50">
       <div className="mx-auto max-w-5xl px-6 py-5 md:py-6 text-center">
         {/* Site Title — Sinclaire display font */}
         <Link href="/" className="inline-block group">
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground tracking-wide">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-white tracking-wide">
             SE Witschorke
           </h1>
-          <p className="font-serif italic text-muted-foreground text-xs sm:text-sm mt-1 tracking-widest uppercase">
+          <p className="font-serif italic text-sage-light text-xs sm:text-sm mt-1 tracking-widest uppercase">
             Author &middot; Foodie &middot; Traveler
           </p>
         </Link>
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden mt-4 text-foreground hover:text-primary transition-colors"
+          className="md:hidden mt-4 text-white hover:text-sage-light transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
         >
@@ -62,14 +62,14 @@ export function SiteHeader() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`relative inline-block pb-1 font-sans text-xs md:text-sm tracking-[0.2em] uppercase transition-colors duration-200 hover:text-primary ${
-                      isActive ? "text-primary" : "text-foreground"
+                    className={`relative inline-block pb-1 font-sans text-xs md:text-sm tracking-[0.2em] uppercase transition-colors duration-200 hover:text-sage-light ${
+                      isActive ? "text-white" : "text-sage-light"
                     }`}
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-1/2 h-[1.5px] bg-primary transition-all duration-300 ${
+                      className={`absolute bottom-0 left-1/2 h-[1.5px] bg-sage-light transition-all duration-300 ${
                         isActive ? "nav-tab-underline" : "w-0 -translate-x-1/2"
                       }`}
                       aria-hidden
