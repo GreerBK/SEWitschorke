@@ -1,39 +1,15 @@
 import Image from "next/image"
 import type { Metadata } from "next"
+import { getBooks } from "@/lib/books"
 
 export const metadata: Metadata = {
   title: "Books | SE Witschorke",
   description: "Browse the books by SE Witschorke - middle grade and young adult fiction.",
 }
 
-const books = [
-  {
-    title: "BOOK TITLE",
-    image: "/images/book-1.jpg",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    year: "2010",
-    category: "Middle Grade",
-  },
-  {
-    title: "BOOK TITLE",
-    image: "/images/book-2.jpg",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    year: "2017",
-    category: "Middle Grade",
-  },
-  {
-    title: "BOOK TITLE",
-    image: "/images/book-3.jpg",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    year: "2021",
-    category: "Young Adult",
-  },
-]
-
 export default function BooksPage() {
+  const books = getBooks()
+
   return (
     <>
       {/* Teal header band */}
@@ -83,9 +59,11 @@ export default function BooksPage() {
                         <h3 className="font-display text-2xl md:text-3xl text-foreground">
                           {book.title}
                         </h3>
-                        <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-primary-foreground bg-teal-dark px-2 py-0.5 rounded-sm">
-                          {book.category}
-                        </span>
+                        {book.level && (
+                          <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-primary-foreground bg-teal-dark px-2 py-0.5 rounded-sm">
+                            {book.level}
+                          </span>
+                        )}
                       </div>
                       <p className="mt-4 font-serif text-sm md:text-base text-foreground/80 leading-relaxed">
                         {book.description}
@@ -93,6 +71,18 @@ export default function BooksPage() {
                       <p className="mt-3 font-sans text-xs tracking-wider text-muted-foreground">
                         {book.year}
                       </p>
+                      {book.orderUrl && (
+                        <div className="mt-5">
+                          <a
+                            href={book.orderUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center px-4 py-2 border border-teal-dark/70 bg-teal-dark text-primary-foreground text-xs font-sans tracking-[0.2em] uppercase rounded-sm shadow-sm transition-colors duration-200 hover:bg-teal-dark/90 hover:border-teal-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-dark"
+                          >
+                            Order Now
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </article>
 

@@ -18,11 +18,16 @@ function stateToFilename(state: string): string {
   return state.toLowerCase().replace(/\s+/g, "-") + ".jpg"
 }
 
+function stateToSlug(state: string): string {
+  return state.toLowerCase().replace(/\s+/g, "-")
+}
+
 export interface GalleryItem {
   state: string
   image: string
   alt: string
   blurb: string
+  popout: string
 }
 
 let cached: GalleryItem[] | null = null
@@ -38,11 +43,27 @@ export function getGalleryItems(): GalleryItem[] {
   } catch {
     // fallback: no descriptions, use defaults below
   }
-  cached = US_STATES.map((state) => ({
-    state,
-    image: `/images/gallery/${stateToFilename(state)}`,
-    alt: state,
-    blurb: typeof descriptions[state] === "string" ? descriptions[state] : `Add your story from ${state}.`,
-  }))
+  const galleryDir = path.join(process.cwd(), "content", "gallery")
+  const defaultPopout = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+
+  cached = US_STATES.map((state) => {
+    let popout = defaultPopout
+    try {
+      const slug = stateToSlug(state)
+      const yamlPath = path.join(galleryDir, `${slug}.yaml`)
+      const raw = fs.readFileSync(yamlPath, "utf8")
+      const data = YAML.parse(raw) as { popout?: string } | null
+      if (data?.popout && typeof data.popout === "string") popout = data.popout
+    } catch {
+      // use default
+    }
+    return {
+      state,
+      image: `/images/gallery/${stateToFilename(state)}`,
+      alt: state,
+      blurb: typeof descriptions[state] === "string" ? descriptions[state] : `Add your story from ${state}.`,
+      popout,
+    }
+  })
   return cached
 }

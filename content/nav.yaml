@@ -1,0 +1,10 @@
+links:
+  - href: "/"
+    label: "Home"
+  - href: "/about"
+    label: "About"
+  - href: "/books"
+    label: "Books"
+  - href: "/gallery"
+    label: "Gallery"
+

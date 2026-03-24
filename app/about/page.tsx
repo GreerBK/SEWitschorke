@@ -1,30 +1,17 @@
 import Image from "next/image"
 import type { Metadata } from "next"
+import { getBioContent, getAwards } from "@/lib/about-content"
 
 export const metadata: Metadata = {
   title: "About | SE Witschorke",
-  description: "Learn about SE Witschorke - author, foodie, and traveler. Read her bio, see her awards, and explore her passions.",
+  description:
+    "Learn about SE Witschorke - author, foodie, and traveler. Read her bio, see her awards, and explore her passions.",
 }
 
-const awards = [
-  {
-    year: "2010",
-    title: "Writers' League of Texas Middle Grade Manuscript Contest Winner",
-    work: "The R.U.I.N.S. at Fiddlefern",
-  },
-  {
-    year: "2017",
-    title: "Writers' League of Texas Middle Grade Manuscript Contest Winner",
-    work: "Looking for Stardust",
-  },
-  {
-    year: "2021",
-    title: "Writers' League of Texas Young Adult Manuscript Contest Winner",
-    work: "Queens and Kings",
-  },
-]
-
 export default function AboutPage() {
+  const bio = getBioContent()
+  const awards = getAwards()
+
   return (
     <>
       {/* Teal header band */}
@@ -46,34 +33,9 @@ export default function AboutPage() {
             {/* Bio Text */}
             <div className="flex-1 order-2 md:order-1">
               <div className="space-y-5 text-foreground font-serif text-sm md:text-base leading-relaxed">
-                <p>
-                  SE doesn&apos;t remember a time when she couldn&apos;t read and spent many
-                  hours perusing the local library&apos;s shelves. Starting at a young age, she
-                  made up her own stories, mostly those with a romantic nature or
-                  about law enforcing women. But it wasn&apos;t until February 14, 2008 that
-                  she fell in love with writing while at a teacher&apos;s training. As a result, SE
-                  began writing for the middle grade and young adult market.
-                </p>
-                <p>
-                  In 2010, SE won the Writer&apos;s League of Texas Middle Grade manuscript
-                  contest. She won the same contest in 2017. She is a current member
-                  of The Society of Children&apos;s Book Writers and Illustrators.
-                </p>
-                <p>
-                  SE was born in Neligh, Nebraska, but her family moved to Texas when
-                  she was a toddler. She grew up in central Texas and then attended
-                  Texas Lutheran University where she earned a BA degree in
-                  Elementary Education.
-                </p>
-                <p>
-                  Fond of a Bohemian lifestyle, SE lived briefly in Maine, Montreal,
-                  Boston, and Vermont, and identifies as a New Yorker in spirit but no
-                  matter how far away she roams, she calls Austin, TX home. She is still
-                  an avid reader but these days frequents the local book store. SE is a
-                  foodie, both with eating at home and dining out, and can be found
-                  attending musical theater or catching a New York Yankees game
-                  when she&apos;s not writing.
-                </p>
+                {bio.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
             </div>
 
@@ -114,7 +76,7 @@ export default function AboutPage() {
           <div className="max-w-2xl mx-auto space-y-6">
             {awards.map((award) => (
               <div key={award.year + award.work} className="flex gap-4 md:gap-6 items-baseline">
-                <span className="font-sans font-bold text-xl md:text-2xl text-gold/80 shrink-0 w-14 md:w-16 text-right">
+                <span className="font-sans font-bold text-xl md:text-2xl text-sage-light shrink-0 w-14 md:w-16 text-right">
                   {award.year}
                 </span>
                 <div className="flex-1 border-l border-sage-light/20 pl-4 md:pl-6">

@@ -4,26 +4,28 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 
-export function SiteHeader() {
+type NavLink = {
+  href: string
+  label: string
+}
+
+interface SiteHeaderProps {
+  links: NavLink[]
+}
+
+export function SiteHeader({ links }: SiteHeaderProps) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
-
-  const links = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/books", label: "Books" },
-    { href: "/gallery", label: "Gallery" },
-  ]
 
   return (
     <header className="bg-teal-dark sticky top-0 z-50">
       <div className="mx-auto max-w-5xl px-6 py-5 md:py-6 text-center">
-        {/* Site Title — Sinclaire display font */}
+        {/* Site Title — Arastin Pro for author name only */}
         <Link href="/" className="inline-block group">
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-white tracking-wide">
+          <h1 className="font-author text-3xl sm:text-4xl md:text-5xl text-white tracking-wide leading-tight">
             SE Witschorke
           </h1>
-          <p className="font-serif italic text-sage-light text-xs sm:text-sm mt-1 tracking-widest uppercase">
+          <p className="font-serif italic text-sage-light text-xs sm:text-sm mt-3 tracking-widest uppercase">
             Author &middot; Foodie &middot; Traveler
           </p>
         </Link>

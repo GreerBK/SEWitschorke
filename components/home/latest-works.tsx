@@ -1,13 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
-
-const books = [
-  { title: "BOOK TITLE", image: "/images/book-1.jpg", href: "/books" },
-  { title: "BOOK TITLE", image: "/images/book-2.jpg", href: "/books" },
-  { title: "BOOK TITLE", image: "/images/book-3.jpg", href: "/books" },
-]
+import { getBooks } from "@/lib/books"
 
 export function LatestWorks() {
+  const books = getBooks().filter((book) => book.featured)
+
   return (
     <section className="py-16 md:py-24 bg-background relative">
       <div className="mx-auto max-w-5xl px-6">
@@ -22,11 +19,11 @@ export function LatestWorks() {
         </div>
 
         {/* Book grid — larger covers with hover effects */}
-        <div className="flex flex-wrap items-start justify-center gap-10 md:gap-16">
+          <div className="flex flex-wrap items-start justify-center gap-10 md:gap-16">
           {books.map((book, idx) => (
             <Link
               key={book.image}
-              href={book.href}
+              href={book.href || "/books"}
               className="group flex flex-col items-center text-center"
               style={{ animationDelay: `${idx * 0.15}s` }}
             >

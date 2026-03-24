@@ -6,6 +6,14 @@
 /* ─── Typefaces ─── */
 
 @font-face {
+  font-family: 'Arastin Pro';
+  src: url('/fonts/Arastin-Pro.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Sinclaire';
   src: url('/fonts/Sinclaire-Bold.woff2') format('woff2'),
        url('/fonts/Sinclaire-Bold.woff') format('woff'),
@@ -69,6 +77,10 @@
 
 /* ─── Design Tokens ─── */
 
+.font-author {
+  font-family: 'Arastin Pro', Georgia, serif;
+}
+
 :root {
   --background: #faf9f6;
   --foreground: #1a2a2a;
@@ -76,7 +88,7 @@
   --card-foreground: #1a2a2a;
   --popover: #ffffff;
   --popover-foreground: #1a2a2a;
-  --primary: #2d6a60;
+  --primary: #006BA6;
   --primary-foreground: #faf9f6;
   --secondary: #c4d9c8;
   --secondary-foreground: #1a2a2a;
@@ -88,14 +100,14 @@
   --destructive-foreground: #fff;
   --border: #ddd8d0;
   --input: #ddd8d0;
-  --ring: #2d6a60;
+  --ring: #006BA6;
   --radius: 0.375rem;
 
-  --teal-dark: #1a3f3a;
-  --teal: #2d6a60;
-  --teal-mid: #5a9a8a;
-  --sage: #7fb8a4;
-  --sage-light: #c4d9c8;
+  --teal-dark: #004d7a;
+  --teal: #006BA6;
+  --teal-mid: #3d8fc9;
+  --sage: #7fb4d4;
+  --sage-light: #c4dcec;
   --cream: #faf9f6;
   --warm-gray: #f0ede8;
   --lavender: #b8b4d0;
@@ -107,6 +119,7 @@
 
 @theme inline {
   --font-display: 'Sinclaire', 'Georgia', serif;
+  --font-author: 'Arastin Pro', 'Georgia', serif;
   --font-sans: 'Balgin', 'Helvetica Neue', sans-serif;
   --font-serif: 'Creato Display', 'Georgia', serif;
   --font-mono: 'Geist Mono', monospace;

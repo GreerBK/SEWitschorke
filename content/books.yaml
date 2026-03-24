@@ -1,22 +1,28 @@
 books:
   - title: "BOOK TITLE"
     image: "/images/book-1.jpg"
+    imageName: "book-1.jpg"
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     year: "2010"
     level: "Middle Grade"
     featured: true
     href: "/books"
+    orderUrl: "https://example.com/order/book-1"
   - title: "BOOK TITLE"
     image: "/images/book-2.jpg"
+    imageName: "book-2.jpg"
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     year: "2017"
     level: "Middle Grade"
     featured: true
     href: "/books"
+    orderUrl: "https://example.com/order/book-2"
   - title: "BOOK TITLE"
     image: "/images/book-3.jpg"
+    imageName: "book-3.jpg"
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     year: "2021"
     level: "Young Adult"
     featured: true
     href: "/books"
+    orderUrl: "https://example.com/order/book-3"
