@@ -1,12 +1,25 @@
 import Image from "next/image"
+import { getPoemQuote } from "@/lib/home-content"
 
 export function HeroSection() {
+  const poemQuote = getPoemQuote()
+  const quoteText = poemQuote?.text || "Stories live in the spaces between the places we go and the people we meet."
+
   return (
     <section className="relative w-full overflow-hidden">
       {/* ── Desktop: split layout ── */}
-      <div className="hidden sm:grid sm:grid-cols-[280px_1fr] md:grid-cols-[320px_1fr] lg:grid-cols-[380px_1fr] min-h-[520px] md:min-h-[560px]">
+      <div className="hidden sm:grid sm:grid-cols-[280px_1fr] md:grid-cols-[320px_1fr] lg:grid-cols-[380px_1fr] min-h-[520px] md:min-h-[560px] relative">
+        <Image
+          src="/images/hero-waterfront.jpg"
+          alt="Scenic waterfront view"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-teal-dark/60 via-teal-dark/20 to-teal-dark/5" />
+
         {/* Left panel — solid teal with portrait grounded at bottom */}
-        <div className="relative bg-teal-dark flex flex-col items-center justify-end">
+        <div className="relative z-10 bg-teal-dark rounded-tr-[180px] md:rounded-tr-[230px] lg:rounded-tr-[260px] flex flex-col items-center justify-end">
           {/* Author portrait — flush at bottom */}
           <div className="relative w-full max-w-[260px] md:max-w-[280px] lg:max-w-[320px] aspect-[3/4] animate-fade-in">
             <Image
@@ -31,16 +44,7 @@ export function HeroSection() {
         </div>
 
         {/* Right panel — waterfront photo with quote */}
-        <div className="relative">
-          <Image
-            src="/images/hero-waterfront.jpg"
-            alt="Scenic waterfront view"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-teal-dark/60 via-teal-dark/20 to-teal-dark/5" />
-
+        <div className="relative z-10">
           {/* Quote — bottom-right */}
           <div className="absolute bottom-10 right-8 md:right-12 lg:right-16 left-8 md:left-auto max-w-sm md:max-w-md lg:max-w-lg text-right animate-slide-in-right delay-200">
             <div className="relative pl-10 md:pl-12 lg:pl-14">
@@ -48,7 +52,7 @@ export function HeroSection() {
                 &ldquo;
               </span>
               <blockquote className="font-display text-xl md:text-2xl lg:text-3xl text-primary-foreground leading-snug">
-                Stories live in the spaces between the places we go and the people we meet.
+                {quoteText}
               </blockquote>
             </div>
             <div className="mt-4 ml-auto w-16 h-px bg-gradient-to-l from-gold to-transparent animate-line-grow delay-500" />
@@ -76,14 +80,14 @@ export function HeroSection() {
                 &ldquo;
               </span>
               <blockquote className="font-display text-base text-primary-foreground leading-snug">
-                Stories live in the spaces between the places we go and the people we meet.
+                {quoteText}
               </blockquote>
             </div>
           </div>
         </div>
 
         {/* Teal strip with portrait */}
-        <div className="bg-teal-dark flex flex-col items-center pt-6">
+        <div className="bg-teal-dark rounded-tr-[120px] flex flex-col items-center pt-6">
           <div className="relative w-40 h-52">
             <Image
               src="/images/about/author-portrait-home.png"

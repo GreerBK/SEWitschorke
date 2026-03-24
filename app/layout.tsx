@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { getNavLinks } from '@/lib/nav'
 
 export const metadata: Metadata = {
   title: 'SE Witschorke | Author · Foodie · Traveler',
@@ -14,10 +15,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const navLinks = getNavLinks()
+
   return (
     <html lang="en">
       <body className="font-serif antialiased">
-        <SiteHeader />
+        <SiteHeader links={navLinks} />
         <main>{children}</main>
         <SiteFooter />
         <Analytics />
