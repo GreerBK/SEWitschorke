@@ -5,7 +5,6 @@ import { useState } from "react"
 import { getStateOutline } from "@/lib/state-outlines"
 import type { GalleryItem } from "@/lib/gallery-descriptions"
 
-/** Derive a consistent stroke width from viewBox so all state borders look the same thickness. */
 function strokeWidthFromViewBox(viewBox: string, fraction = 0.02): number {
   const [,, w, h] = viewBox.split(/\s+/).map(Number)
   const size = Math.min(w, h)
@@ -21,7 +20,7 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
 
   return (
     <div
-      className="relative aspect-square overflow-hidden rounded cursor-pointer group"
+      className="relative aspect-square overflow-hidden rounded-sm cursor-pointer group"
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
       onClick={() => setActive((prev) => !prev)}
@@ -37,46 +36,46 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
           alt={item.alt}
           fill
           priority={priority}
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 768px) 50vw, 20vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          sizes="(max-width: 768px) 50vw, 25vw"
           onError={() => setImgError(true)}
         />
       ) : (
-        <div className="absolute inset-0 bg-muted flex items-center justify-center" aria-hidden>
-          <span className="text-muted-foreground text-sm font-medium">{item.state}</span>
+        <div className="absolute inset-0 bg-warm-gray flex items-center justify-center" aria-hidden>
+          <span className="text-muted-foreground text-sm font-sans">{item.state}</span>
         </div>
       )}
 
-      {/* Hover / tap overlay: state outline and blurb */}
+      {/* Hover / tap overlay */}
       <div
-        className={`absolute inset-0 bg-teal-dark/75 flex flex-col items-center justify-center p-3 md:p-4 text-center transition-opacity duration-300 ${
+        className={`absolute inset-0 bg-teal-dark/80 backdrop-blur-[2px] flex flex-col items-center justify-center p-3 md:p-5 text-center transition-all duration-500 ${
           active ? "opacity-100" : "opacity-0"
         }`}
       >
         <svg
           viewBox={outline.viewBox}
-          className="w-12 h-12 md:w-20 md:h-20 mb-1.5 md:mb-2 flex-shrink-0"
+          className="w-10 h-10 md:w-16 md:h-16 mb-2 flex-shrink-0"
           fill="none"
           stroke="white"
           strokeWidth={strokeWidth}
           preserveAspectRatio="xMidYMid meet"
           aria-hidden="true"
         >
-          <path d={outline.path} fill="white" fillOpacity="0.15" />
+          <path d={outline.path} fill="white" fillOpacity="0.12" />
         </svg>
 
-        <p className="font-sans font-bold text-xs md:text-base text-primary-foreground tracking-wider uppercase">
+        <p className="font-sans font-bold text-[11px] md:text-sm text-primary-foreground tracking-[0.15em] uppercase">
           {item.state}
         </p>
 
-        <p className="font-serif italic text-[11px] md:text-sm text-sage-light mt-1 md:mt-2 leading-snug md:leading-relaxed max-w-[160px] md:max-w-[200px]">
+        <p className="font-serif italic text-[10px] md:text-sm text-sage-light/90 mt-2 leading-snug max-w-[140px] md:max-w-[180px]">
           {item.blurb}
         </p>
       </div>
 
-      {/* Mobile hint: small state label at bottom */}
-      <div className={`absolute bottom-0 inset-x-0 bg-teal-dark/60 py-1 text-center sm:hidden transition-opacity duration-300 ${active ? "opacity-0" : "opacity-100"}`}>
-        <p className="font-sans text-[10px] text-primary-foreground/90 tracking-wider uppercase">
+      {/* Mobile: subtle state label at bottom */}
+      <div className={`absolute bottom-0 inset-x-0 bg-gradient-to-t from-teal-dark/70 to-transparent py-2 pt-6 text-center sm:hidden transition-opacity duration-300 ${active ? "opacity-0" : "opacity-100"}`}>
+        <p className="font-sans text-[10px] text-primary-foreground/80 tracking-[0.15em] uppercase">
           {item.state}
         </p>
       </div>
@@ -86,7 +85,7 @@ function GalleryCard({ item, priority = false }: { item: GalleryItem; priority?:
 
 export function GalleryGrid({ items }: { items: GalleryItem[] }) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
       {items.map((item, idx) => (
         <GalleryCard key={item.state} item={item} priority={idx === 0} />
       ))}

@@ -27,13 +27,25 @@ const awards = [
 export default function AboutPage() {
   return (
     <>
-      {/* Bio Section */}
-      <section className="py-14 md:py-20 bg-background">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12">
+      {/* Teal header band */}
+      <section className="bg-teal-dark py-14 md:py-20">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <p className="font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase text-sage-light/60 mb-3">
+            The Author
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl text-primary-foreground">
+            About SE
+          </h2>
+        </div>
+      </section>
+
+      {/* Bio Section — light sage background */}
+      <section className="py-14 md:py-20 bg-sage-light/20">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16">
             {/* Bio Text */}
             <div className="flex-1 order-2 md:order-1">
-              <div className="prose prose-sm max-w-none text-foreground font-serif leading-relaxed">
+              <div className="space-y-5 text-foreground font-serif text-sm md:text-base leading-relaxed">
                 <p>
                   SE doesn&apos;t remember a time when she couldn&apos;t read and spent many
                   hours perusing the local library&apos;s shelves. Starting at a young age, she
@@ -42,18 +54,18 @@ export default function AboutPage() {
                   she fell in love with writing while at a teacher&apos;s training. As a result, SE
                   began writing for the middle grade and young adult market.
                 </p>
-                <p className="mt-4">
+                <p>
                   In 2010, SE won the Writer&apos;s League of Texas Middle Grade manuscript
                   contest. She won the same contest in 2017. She is a current member
                   of The Society of Children&apos;s Book Writers and Illustrators.
                 </p>
-                <p className="mt-4">
+                <p>
                   SE was born in Neligh, Nebraska, but her family moved to Texas when
                   she was a toddler. She grew up in central Texas and then attended
                   Texas Lutheran University where she earned a BA degree in
                   Elementary Education.
                 </p>
-                <p className="mt-4">
+                <p>
                   Fond of a Bohemian lifestyle, SE lived briefly in Maine, Montreal,
                   Boston, and Vermont, and identifies as a New Yorker in spirit but no
                   matter how far away she roams, she calls Austin, TX home. She is still
@@ -65,9 +77,9 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Author Photo — portrait aspect so head isn't cropped */}
+            {/* Author Photo + Contact */}
             <div className="order-1 md:order-2 shrink-0 flex flex-col items-center">
-              <div className="relative w-64 h-80 md:w-80 md:h-96 mx-auto rounded overflow-hidden shadow-md">
+              <div className="relative w-64 h-80 md:w-72 md:h-96 mx-auto rounded-sm overflow-hidden shadow-lg">
                 <Image
                   src="/images/about/author-portrait-about.png"
                   alt="SE Witschorke"
@@ -78,63 +90,84 @@ export default function AboutPage() {
               </div>
               <a
                 href="mailto:sewitschorke@gmail.com"
-                className="mt-6 w-full max-w-[16rem] flex items-center justify-center px-6 py-4 text-lg font-sans font-bold tracking-wider uppercase text-primary border-2 border-primary rounded-md hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                className="mt-8 inline-flex items-center justify-center px-8 py-3 font-sans text-xs tracking-[0.2em] uppercase text-primary-foreground bg-teal-dark rounded-sm hover:bg-primary transition-all duration-300"
               >
-                Contact me
+                Get in touch
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Awards Section */}
-      <section className="py-14 md:py-16 bg-muted">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-2xl md:text-3xl font-sans font-bold tracking-wider uppercase text-foreground mb-8">
-            AWARDS
-          </h2>
-          <ul className="space-y-4">
+      {/* Awards Section — teal background */}
+      <section className="py-14 md:py-20 bg-teal-dark">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center mb-10">
+            <p className="font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase text-sage-light/60 mb-3">
+              Recognition
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl text-primary-foreground">
+              Awards
+            </h2>
+          </div>
+
+          <div className="max-w-2xl mx-auto space-y-6">
             {awards.map((award) => (
-              <li key={award.year + award.work} className="text-sm md:text-base font-serif text-foreground leading-relaxed">
-                <span className="font-sans font-semibold text-primary">{award.year}</span>
-                {" - "}
-                {award.title}
-                {" - "}
-                <em>{award.work}</em>
-              </li>
+              <div key={award.year + award.work} className="flex gap-4 md:gap-6 items-baseline">
+                <span className="font-sans font-bold text-xl md:text-2xl text-gold/80 shrink-0 w-14 md:w-16 text-right">
+                  {award.year}
+                </span>
+                <div className="flex-1 border-l border-sage-light/20 pl-4 md:pl-6">
+                  <p className="font-serif text-sm md:text-base text-primary-foreground/90 leading-relaxed">
+                    {award.title}
+                  </p>
+                  <p className="font-serif italic text-sm text-sage-light/70 mt-1">
+                    {award.work}
+                  </p>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
-      {/* Travel / Food Photos */}
-      <section className="py-14 md:py-16 bg-background">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="relative aspect-square rounded overflow-hidden shadow-sm">
+      {/* Photo Grid — sage background */}
+      <section className="py-14 md:py-20 bg-sage-light/20">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center mb-10">
+            <p className="font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+              Life &amp; Adventures
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl text-foreground">
+              Snapshots
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            <div className="relative aspect-square rounded-sm overflow-hidden shadow-sm">
               <Image
                 src="/images/about/about-1.jpg"
                 alt="A close-up of a dog wearing a bandana"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
+                className="object-cover hover:scale-105 transition-transform duration-700"
                 sizes="(min-width: 768px) 33vw, 50vw"
               />
             </div>
-            <div className="relative aspect-square rounded overflow-hidden shadow-sm">
+            <div className="relative aspect-square rounded-sm overflow-hidden shadow-sm">
               <Image
                 src="/images/about/about-2.jpg"
                 alt="Books on display in a bookstore"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
+                className="object-cover hover:scale-105 transition-transform duration-700"
                 sizes="(min-width: 768px) 33vw, 50vw"
               />
             </div>
-            <div className="relative aspect-square rounded overflow-hidden shadow-sm col-span-2 md:col-span-1">
+            <div className="relative aspect-square rounded-sm overflow-hidden shadow-sm col-span-2 md:col-span-1">
               <Image
                 src="/images/about/about-3.jpg"
                 alt="A charcuterie board with bread, fruit, and cheese"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
+                className="object-cover hover:scale-105 transition-transform duration-700"
                 sizes="(min-width: 768px) 33vw, 100vw"
               />
             </div>

@@ -31,7 +31,6 @@ export function TikTokEmbed() {
         containerRef.current.innerHTML = ""
         containerRef.current.appendChild(blockquote)
 
-        // Load TikTok's embed.js only after the blockquote is in the DOM so it can upgrade it to the full widget
         if (scriptLoadedRef.current) return
         scriptLoadedRef.current = true
 
@@ -51,20 +50,20 @@ export function TikTokEmbed() {
   }, [])
 
   return (
-    <div className="bg-muted rounded-md p-6 md:p-8 text-center">
-      <h3 className="font-sans font-bold tracking-wider uppercase text-foreground text-center mb-4">
+    <div className="bg-card rounded-lg p-8 md:p-10 shadow-sm border border-border/50">
+      <h3 className="font-sans font-bold text-xs tracking-[0.2em] uppercase text-foreground mb-6">
         TikTok
       </h3>
       {error ? (
         <>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-            Short videos on food, travel, and life—follow @sweetnsavory61.
+          <p className="text-muted-foreground text-sm font-serif leading-relaxed mb-5">
+            Short videos on food, travel, and life — follow @sweetnsavory61.
           </p>
           <a
             href={TIKTOK_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-sm text-primary hover:text-teal-dark transition-colors underline underline-offset-4"
+            className="inline-block font-sans text-xs tracking-[0.15em] uppercase text-primary border-b border-primary/30 pb-0.5 hover:border-primary transition-colors"
           >
             Follow on TikTok
           </a>
@@ -75,14 +74,16 @@ export function TikTokEmbed() {
             ref={containerRef}
             className="min-h-[320px] flex items-center justify-center [&_.tiktok-embed]:!max-w-full [&_.tiktok-embed]:!mx-auto"
           />
-          <a
-            href={TIKTOK_PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 text-sm text-primary hover:text-teal-dark transition-colors underline underline-offset-4"
-          >
-            Follow on TikTok
-          </a>
+          <div className="mt-6 pt-4 border-t border-border/50">
+            <a
+              href={TIKTOK_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-sans text-xs tracking-[0.15em] uppercase text-primary border-b border-primary/30 pb-0.5 hover:border-primary transition-colors"
+            >
+              Follow on TikTok
+            </a>
+          </div>
         </>
       )}
     </div>

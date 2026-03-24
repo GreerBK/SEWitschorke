@@ -4,10 +4,8 @@ import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 
-/* Fonts: Wolfpack (titles) and Creato Display (reading) are self-hosted in globals.css. */
-
 export const metadata: Metadata = {
-  title: 'SE Witschorke | Author - Foodie - Traveler',
+  title: 'SE Witschorke | Author · Foodie · Traveler',
   description: 'SE Witschorke is an author, foodie, and traveler. Explore her books, travel photography, and culinary adventures.',
 }
 
