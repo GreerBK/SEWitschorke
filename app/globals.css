@@ -75,10 +75,18 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Above the Beyond Script';
+  src: url('/fonts/Above-the-Beyond-Script.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─── Design Tokens ─── */
 
 .font-author {
-  font-family: 'Arastin Pro', Georgia, serif;
+  font-family: 'Above the Beyond Script', 'Arastin Pro', Georgia, serif;
 }
 
 :root {
@@ -119,7 +127,7 @@
 
 @theme inline {
   --font-display: 'Sinclaire', 'Georgia', serif;
-  --font-author: 'Arastin Pro', 'Georgia', serif;
+  --font-author: 'Above the Beyond Script', 'Arastin Pro', 'Georgia', serif;
   --font-sans: 'Balgin', 'Helvetica Neue', sans-serif;
   --font-serif: 'Creato Display', 'Georgia', serif;
   --font-mono: 'Geist Mono', monospace;

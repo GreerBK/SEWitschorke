@@ -62,15 +62,15 @@ function GalleryCard({
         </div>
       )}
 
-      {/* Hover / tap overlay */}
+      {/* Hover / tap overlay — state outline + name, centered */}
       <div
-        className={`absolute inset-0 bg-teal-dark/80 backdrop-blur-[2px] flex flex-col items-center justify-center p-3 md:p-5 text-center transition-all duration-500 ${
+        className={`absolute inset-0 bg-teal-dark/80 backdrop-blur-[2px] flex flex-col items-center justify-center gap-2 md:gap-2.5 text-center transition-all duration-500 ${
           active ? "opacity-100" : "opacity-0"
         }`}
       >
         <svg
           viewBox={outline.viewBox}
-          className="w-10 h-10 md:w-16 md:h-16 mb-2 flex-shrink-0"
+          className="w-10 h-10 md:w-16 md:h-16 flex-shrink-0"
           fill="none"
           stroke="white"
           strokeWidth={strokeWidth}
@@ -82,10 +82,6 @@ function GalleryCard({
 
         <p className="font-sans font-bold text-[11px] md:text-sm text-primary-foreground tracking-[0.15em] uppercase">
           {item.state}
-        </p>
-
-        <p className="font-serif italic text-[10px] md:text-sm text-sage-light/90 mt-2 leading-snug max-w-[140px] md:max-w-[180px]">
-          {item.blurb}
         </p>
       </div>
 
@@ -123,7 +119,7 @@ function GalleryPopoutBody({ item }: { item: GalleryItem }) {
       </div>
 
       <DialogClose
-        className="absolute top-4 right-4 z-20 rounded-sm p-1 text-white opacity-90 ring-offset-[#006ba6] transition-opacity hover:opacity-100 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#006ba6]"
+        className="absolute top-4 right-4 z-20 cursor-pointer rounded-sm p-1 text-white opacity-90 ring-offset-[#006ba6] transition-opacity hover:opacity-100 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#006ba6]"
         aria-label="Close"
       >
         <XIcon className="size-6" strokeWidth={2} />
