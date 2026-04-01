@@ -20,12 +20,12 @@ export function SiteHeader({ links }: SiteHeaderProps) {
   return (
     <header className="bg-teal-dark sticky top-0 z-50">
       <div className="mx-auto max-w-5xl px-6 py-5 md:py-6 text-center">
-        {/* Site Title — Arastin Pro for author name only */}
+        {/* Site title + tagline */}
         <Link href="/" className="inline-block group">
-          <h1 className="font-author text-3xl sm:text-4xl md:text-5xl text-white tracking-wide leading-tight">
+          <h1 className="font-author text-3xl sm:text-4xl md:text-5xl text-white tracking-wide leading-tight pb-1">
             SE Witschorke
           </h1>
-          <p className="font-serif italic text-sage-light text-xs sm:text-sm mt-3 tracking-widest uppercase">
+          <p className="font-serif italic text-sage-light text-xs sm:text-sm mt-5 sm:mt-6 tracking-widest uppercase">
             Author &middot; Foodie &middot; Traveler
           </p>
         </Link>
