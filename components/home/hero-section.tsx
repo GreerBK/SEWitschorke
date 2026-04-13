@@ -19,7 +19,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-teal-dark/60 via-teal-dark/20 to-teal-dark/5" />
 
         {/* Left panel — solid teal with symmetrical top arch, inset from left/bottom */}
-        <div className="relative z-10 h-full min-h-0 flex flex-col justify-end pl-4 pb-4 md:pl-5 md:pb-5 lg:pl-6 lg:pb-6">
+        <div className="relative z-10 h-full min-h-0 flex flex-col justify-end pl-4 md:pl-5 lg:pl-6">
           <div className="relative w-full bg-teal-dark rounded-t-[132px] md:rounded-t-[150px] lg:rounded-t-[178px] flex flex-col items-center justify-end pt-2 md:pt-3">
             {/* Author portrait — flush at bottom */}
             <div className="relative w-full max-w-[260px] md:max-w-[280px] lg:max-w-[320px] aspect-[3/4] animate-fade-in">
@@ -89,7 +89,7 @@ export function HeroSection() {
         </div>
 
         {/* Teal strip with portrait — symmetrical arch, inset from edges */}
-        <div className="bg-teal-dark rounded-t-[calc(50vw_-_1rem)] mx-4 mb-4 flex flex-col items-center pt-4">
+        <div className="bg-teal-dark rounded-t-[calc(50vw_-_1rem)] mx-4 flex flex-col items-center pt-4">
           <div className="relative w-40 h-48">
             <Image
               src="/images/about/author-portrait-home.png"

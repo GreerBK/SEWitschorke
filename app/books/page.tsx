@@ -15,7 +15,7 @@ export default function BooksPage() {
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center mb-12 md:mb-16">
           <h1 className="font-serif text-xl md:text-2xl text-foreground normal-case italic">
-            Tasty titles coming soon
+            Tasty titles coming soon!
           </h1>
         </div>
 
