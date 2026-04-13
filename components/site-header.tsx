@@ -19,7 +19,7 @@ export function SiteHeader({ links }: SiteHeaderProps) {
 
   return (
     <header className="bg-teal-dark sticky top-0 z-50">
-      <div className="mx-auto max-w-5xl px-6 py-5 md:py-6 text-center">
+      <div className="mx-auto max-w-5xl px-6 pb-5 md:pb-6 pt-[calc(1.25rem+env(safe-area-inset-top,0px))] md:pt-[calc(1.5rem+env(safe-area-inset-top,0px))] text-center">
         {/* Site title + tagline */}
         <Link href="/" className="inline-block group">
           <h1 className="font-author text-3xl sm:text-4xl md:text-5xl text-white tracking-wide leading-tight pb-1">
