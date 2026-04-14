@@ -87,6 +87,9 @@
 
 .font-author {
   font-family: 'Above the Beyond Script', 'Arastin Pro', Georgia, serif;
+  /* Core Text (macOS Safari) measures script/script-adjacent faces tighter than
+     DirectWrite; keep ascenders from reading as clipped against the header edge. */
+  overflow: visible;
 }
 
 :root {
