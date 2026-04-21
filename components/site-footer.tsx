@@ -15,7 +15,6 @@ export function SiteFooter() {
           <div className="mt-8 flex items-center justify-center gap-8">
             {[
               { href: "https://substack.com/@sewitschorke/notes", label: "Substack" },
-              { href: "https://www.instagram.com/sweetnsavory61", label: "Instagram" },
               { href: "https://www.tiktok.com/@sweetnsavory61", label: "TikTok" },
             ].map((social) => (
               <a
