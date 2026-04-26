@@ -83,10 +83,19 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Hand Script';
+  src: url('/fonts/hand-script-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ─── Design Tokens ─── */
 
 .font-author {
-  font-family: 'Above the Beyond Script', 'Arastin Pro', Georgia, serif;
+  font-family: 'Hand Script', 'Above the Beyond Script', 'Arastin Pro', Georgia, serif;
+  font-style: italic;
   /* Core Text (macOS Safari) measures script/script-adjacent faces tighter than
      DirectWrite; keep ascenders from reading as clipped against the header edge. */
   overflow: visible;
@@ -130,7 +139,7 @@
 
 @theme inline {
   --font-display: 'Sinclaire', 'Georgia', serif;
-  --font-author: 'Above the Beyond Script', 'Arastin Pro', 'Georgia', serif;
+  --font-author: 'Hand Script', 'Above the Beyond Script', 'Arastin Pro', 'Georgia', serif;
   --font-sans: 'Balgin', 'Helvetica Neue', sans-serif;
   --font-serif: 'Creato Display', 'Georgia', serif;
   --font-mono: 'Geist Mono', monospace;
