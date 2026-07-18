@@ -39,11 +39,15 @@ The gallery shows one photo per state. To add one:
 1. In Pages CMS, open **Media** in the sidebar and go into the
    `gallery` folder.
 2. Upload your photo. **The file name tells the website which state it is**,
-   so before uploading, rename the photo on your computer to the state name in
-   lowercase, with hyphens instead of spaces, ending in `.jpg`. Examples:
+   so before uploading, rename the photo on your computer to the state's name,
+   ending in `.jpg`. Examples:
    - `texas.jpg`
-   - `north-carolina.jpg`
-   - `new-york.jpg`
+   - `north carolina.jpg`
+   - `New York.jpg`
+
+   Capital letters and spaces are fine — the uploader tidies them up
+   automatically (`New York.jpg` becomes `new-york.jpg`). Just make sure the
+   name is the state and nothing else (no `IMG_1234.jpg`).
 
 Two important notes about photos:
 
