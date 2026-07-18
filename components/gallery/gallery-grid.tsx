@@ -40,11 +40,17 @@ function GalleryCard({
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
       onClick={() => onOpenPopout(item)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+          onOpenPopout(item)
+        }
+      }}
       onFocus={() => setActive(true)}
       onBlur={() => setActive(false)}
       tabIndex={0}
-      role="figure"
-      aria-label={`${item.alt} - ${item.state}: ${item.blurb}`}
+      role="button"
+      aria-label={`View photo from ${item.state}`}
     >
       {!imgError ? (
         <Image
@@ -96,28 +102,10 @@ function GalleryCard({
 }
 
 function GalleryPopoutBody({ item }: { item: GalleryItem }) {
-  const outline = getStateOutline(item.state)
-  const strokeWidth = strokeWidthFromViewBox(outline.viewBox)
+  const [imgError, setImgError] = useState(false)
 
   return (
-    <div className="relative w-full overflow-visible rounded-[28px] bg-[#006ba6] pt-[2.835rem] pb-[2.025rem] pl-[1.8225rem] pr-[1.8225rem] shadow-xl sm:pt-[3.43125rem] sm:pb-[2.43rem] sm:pl-[2.2275rem] sm:pr-[2.2275rem]">
-      {/* Same bg as shell, slight overlap into body to avoid subpixel seam */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-0 z-10 flex h-[4.025rem] w-[8.3375rem] -translate-x-1/2 -translate-y-[calc(50%-2px)] items-end justify-center rounded-t-full bg-[#006ba6] pb-[0.43125rem] pt-[0.575rem] sm:h-[4.45rem]"
-        aria-hidden
-      >
-        <svg
-          viewBox={outline.viewBox}
-          className="h-[2.975625rem] w-[2.975625rem] flex-shrink-0 sm:h-[3.30625rem] sm:w-[3.30625rem]"
-          fill="none"
-          stroke="#ffffff"
-          strokeWidth={strokeWidth}
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <path d={outline.path} fill="#ffffff" fillOpacity={0.12} />
-        </svg>
-      </div>
-
+    <div className="relative w-full overflow-visible rounded-[28px] bg-[#006ba6] p-3 shadow-xl sm:p-4">
       <DialogClose
         className="absolute top-4 right-4 z-20 cursor-pointer rounded-sm p-1 text-white opacity-90 ring-offset-[#006ba6] transition-opacity hover:opacity-100 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#006ba6]"
         aria-label="Close"
@@ -127,11 +115,26 @@ function GalleryPopoutBody({ item }: { item: GalleryItem }) {
 
       <DialogTitle className="sr-only">{item.state}</DialogTitle>
 
-      <div className="rounded-2xl bg-white px-5 py-8 sm:px-8 sm:py-10">
-        <p className="text-center font-sans text-sm leading-relaxed text-neutral-800 sm:text-base">
-          {item.popout}
-        </p>
+      <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-warm-gray">
+        {!imgError ? (
+          <Image
+            src={item.image}
+            alt={item.alt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, 32rem"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center" aria-hidden>
+            <span className="text-muted-foreground text-sm font-sans">{item.state}</span>
+          </div>
+        )}
       </div>
+
+      <p className="pt-4 pb-1 text-center font-sans text-sm font-bold tracking-[0.15em] text-primary-foreground uppercase sm:text-base">
+        {item.state}
+      </p>
     </div>
   )
 }
@@ -156,7 +159,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
         <DialogContent
           showCloseButton={false}
           overlayClassName="bg-black/60 backdrop-blur-[2px]"
-          onOpenAutoFocus={(e) => e.preventDefault()}
+          aria-describedby={undefined}
           className={cn(
             "max-w-[min(calc(100%-2rem),32rem)] gap-0 overflow-visible border-0 bg-transparent p-0 shadow-none sm:max-w-lg",
           )}

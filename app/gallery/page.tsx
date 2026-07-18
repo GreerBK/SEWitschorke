@@ -20,7 +20,7 @@ export default function GalleryPage() {
             Gallery
           </h2>
           <p className="text-muted-foreground text-sm font-serif mt-3">
-            Tap to discover the story behind each photo
+            Tap a photo for a closer look
           </p>
         </div>
 

@@ -53,4 +53,4 @@ Add one photo per state. Name each file exactly as listed so the gallery can mat
 - `wisconsin.jpg`
 - `wyoming.jpg`
 
-Until a file is present, the tile shows a placeholder with the state name. Hover over any tile to see the state outline and blurb (edit blurbs in `components/gallery/gallery-grid.tsx`).
+Until a file is present, the tile shows a placeholder with the state name. Hover over any tile to see the state outline and name; click/tap to see the enlarged photo.
