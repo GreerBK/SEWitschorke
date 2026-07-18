@@ -2,14 +2,6 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog"
-import { XIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
 import { getStateOutline } from "@/lib/state-outlines"
 import type { GalleryItem } from "@/lib/gallery-descriptions"
 
@@ -23,11 +15,9 @@ function strokeWidthFromViewBox(viewBox: string, fraction = 0.02): number {
 function GalleryCard({
   item,
   priority = false,
-  onOpenPopout,
 }: {
   item: GalleryItem
   priority?: boolean
-  onOpenPopout: (item: GalleryItem) => void
 }) {
   const [active, setActive] = useState(false)
   const [imgError, setImgError] = useState(false)
@@ -36,21 +26,11 @@ function GalleryCard({
 
   return (
     <div
-      className="relative aspect-square overflow-hidden rounded-sm cursor-pointer group"
+      className="relative aspect-square overflow-hidden rounded-sm group"
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      onClick={() => onOpenPopout(item)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault()
-          onOpenPopout(item)
-        }
-      }}
-      onFocus={() => setActive(true)}
-      onBlur={() => setActive(false)}
-      tabIndex={0}
-      role="button"
-      aria-label={`View photo from ${item.state}`}
+      role="figure"
+      aria-label={item.state}
     >
       {!imgError ? (
         <Image
@@ -101,72 +81,12 @@ function GalleryCard({
   )
 }
 
-function GalleryPopoutBody({ item }: { item: GalleryItem }) {
-  const [imgError, setImgError] = useState(false)
-
-  return (
-    <div className="relative w-full overflow-visible rounded-[28px] bg-[#006ba6] p-3 shadow-xl sm:p-4">
-      <DialogClose
-        className="absolute top-4 right-4 z-20 cursor-pointer rounded-sm p-1 text-white opacity-90 ring-offset-[#006ba6] transition-opacity hover:opacity-100 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#006ba6]"
-        aria-label="Close"
-      >
-        <XIcon className="size-6" strokeWidth={2} />
-      </DialogClose>
-
-      <DialogTitle className="sr-only">{item.state}</DialogTitle>
-
-      <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-warm-gray">
-        {!imgError ? (
-          <Image
-            src={item.image}
-            alt={item.alt}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 100vw, 32rem"
-            onError={() => setImgError(true)}
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center" aria-hidden>
-            <span className="text-muted-foreground text-sm font-sans">{item.state}</span>
-          </div>
-        )}
-      </div>
-
-      <p className="pt-4 pb-1 text-center font-sans text-sm font-bold tracking-[0.15em] text-primary-foreground uppercase sm:text-base">
-        {item.state}
-      </p>
-    </div>
-  )
-}
-
 export function GalleryGrid({ items }: { items: GalleryItem[] }) {
-  const [popoutItem, setPopoutItem] = useState<GalleryItem | null>(null)
-
   return (
-    <>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
-        {items.map((item, idx) => (
-          <GalleryCard
-            key={item.state}
-            item={item}
-            priority={idx === 0}
-            onOpenPopout={setPopoutItem}
-          />
-        ))}
-      </div>
-
-      <Dialog open={!!popoutItem} onOpenChange={(open) => !open && setPopoutItem(null)}>
-        <DialogContent
-          showCloseButton={false}
-          overlayClassName="bg-black/60 backdrop-blur-[2px]"
-          aria-describedby={undefined}
-          className={cn(
-            "max-w-[min(calc(100%-2rem),32rem)] gap-0 overflow-visible border-0 bg-transparent p-0 shadow-none sm:max-w-lg",
-          )}
-        >
-          {popoutItem && <GalleryPopoutBody item={popoutItem} />}
-        </DialogContent>
-      </Dialog>
-    </>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+      {items.map((item, idx) => (
+        <GalleryCard key={item.state} item={item} priority={idx === 0} />
+      ))}
+    </div>
   )
 }
