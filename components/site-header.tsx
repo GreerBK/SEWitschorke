@@ -35,6 +35,7 @@ export function SiteHeader({ links }: SiteHeaderProps) {
           className="md:hidden mt-4 text-white hover:text-sage-light transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
         >
           <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
             {menuOpen ? (
