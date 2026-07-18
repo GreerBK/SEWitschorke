@@ -29,8 +29,6 @@ function GalleryCard({
       className="relative aspect-square overflow-hidden rounded-sm group"
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      role="figure"
-      aria-label={item.state}
     >
       {!imgError ? (
         <Image
@@ -48,8 +46,9 @@ function GalleryCard({
         </div>
       )}
 
-      {/* Hover / tap overlay — state outline + name, centered */}
+      {/* Hover / tap overlay — state outline + name, centered. Decorative: the img alt already names the state. */}
       <div
+        aria-hidden
         className={`absolute inset-0 bg-teal-dark/80 backdrop-blur-[2px] flex flex-col items-center justify-center gap-2 md:gap-2.5 text-center transition-all duration-500 ${
           active ? "opacity-100" : "opacity-0"
         }`}
@@ -71,8 +70,8 @@ function GalleryCard({
         </p>
       </div>
 
-      {/* Mobile: subtle state label at bottom */}
-      <div className={`absolute bottom-0 inset-x-0 bg-gradient-to-t from-teal-dark/70 to-transparent py-2 pt-6 text-center sm:hidden transition-opacity duration-300 ${active ? "opacity-0" : "opacity-100"}`}>
+      {/* Mobile: subtle state label at bottom. Decorative: the img alt already names the state. */}
+      <div aria-hidden className={`absolute bottom-0 inset-x-0 bg-gradient-to-t from-teal-dark/70 to-transparent py-2 pt-6 text-center sm:hidden transition-opacity duration-300 ${active ? "opacity-0" : "opacity-100"}`}>
         <p className="font-display text-[10px] text-primary-foreground/80 tracking-[0.15em] uppercase">
           {item.state}
         </p>

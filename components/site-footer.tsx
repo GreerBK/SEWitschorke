@@ -34,16 +34,16 @@ export function SiteFooter() {
           <div className="mt-8 mx-auto w-24 h-px bg-sage-light/20" />
 
           {/* Copyright */}
-          <p className="text-sage-light/40 text-xs mt-6 font-serif">
+          <p className="text-sage-light/80 text-xs mt-6 font-serif">
             &copy; {new Date().getFullYear()} SE Witschorke. All rights reserved.
           </p>
-          <p className="text-sage-light/30 text-[10px] mt-2 font-serif">
+          <p className="text-sage-light/70 text-[10px] mt-2 font-serif">
             Powered by{" "}
             <a
               href="https://www.technextdoormn.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-sage-light/60 transition-colors underline underline-offset-2"
+              className="hover:text-sage-light transition-colors underline underline-offset-2"
             >
               Tech Next Door
             </a>

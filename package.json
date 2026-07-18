@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
+    "start": "npx serve out",
     "generate:state-outlines": "node scripts/generate-state-outlines.mjs"
   },
   "dependencies": {

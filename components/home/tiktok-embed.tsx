@@ -18,7 +18,11 @@ export function TikTokEmbed() {
         const res = await fetch("/api/tiktok-oembed")
         if (!res.ok) throw new Error("oEmbed failed")
         const data = (await res.json()) as { html?: string }
-        if (cancelled || !containerRef.current || !data.html) return
+        if (cancelled || !containerRef.current) return
+        if (!data.html) {
+          setError(true)
+          return
+        }
 
         const div = document.createElement("div")
         div.innerHTML = data.html

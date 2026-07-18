@@ -14,9 +14,9 @@ export default function BooksPage() {
     <section className="py-16 md:py-24 bg-background">
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h1 className="font-serif text-xl md:text-2xl text-foreground normal-case italic">
+          <h2 className="font-serif text-xl md:text-2xl text-foreground normal-case italic">
             Tasty titles coming soon!
-          </h1>
+          </h2>
         </div>
 
         <div className="flex flex-wrap items-start justify-center gap-10 md:gap-16">

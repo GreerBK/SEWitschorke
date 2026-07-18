@@ -239,6 +239,18 @@
   animation: line-grow 1s ease-out both;
 }
 
+/* Respect reduced-motion preferences: jump animations to their end state
+   and make transitions effectively instant. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ─── Base ─── */
 
 @layer base {
