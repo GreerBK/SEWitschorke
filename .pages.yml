@@ -1,0 +1,111 @@
+# Pages CMS configuration — https://pagescms.org
+# This file defines the friendly editing interface at https://app.pagescms.org
+# for this site's content. Editors sign in with a GitHub account that has
+# been added as a collaborator on this repository.
+
+media:
+  input: public/images
+  output: /images
+  categories: [image]
+
+content:
+  - name: home
+    label: Home Page
+    type: file
+    path: content/home.yaml
+    format: yaml
+    fields:
+      - name: poemQuote
+        label: Opening Quote
+        type: object
+        fields:
+          - name: text
+            label: Quote text
+            type: text
+            description: The short quote shown at the top of the home page.
+          - name: attribution
+            label: Attribution
+            type: string
+            description: Who said it. Leave blank if it's your own line.
+
+  - name: about
+    label: About — Bio
+    type: file
+    path: content/about.yaml
+    format: yaml
+    fields:
+      - name: bio
+        label: Biography
+        type: object
+        fields:
+          - name: paragraphs
+            label: Bio paragraphs
+            type: text
+            list: true
+            description: Each item is one paragraph on the About page, shown in order.
+
+  - name: awards
+    label: About — Awards
+    type: file
+    path: content/awards.yaml
+    format: yaml
+    fields:
+      - name: awards
+        label: Awards
+        type: object
+        list: true
+        fields:
+          - name: year
+            label: Year
+            type: string
+          - name: title
+            label: Award title
+            type: string
+          - name: work
+            label: Winning work
+            type: string
+            description: The manuscript or book that won.
+
+  - name: books
+    label: Books
+    type: file
+    path: content/books.yaml
+    format: yaml
+    fields:
+      - name: books
+        label: Books
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: image
+            label: Cover image
+            type: image
+          - name: description
+            label: Description
+            type: text
+          - name: year
+            label: Year
+            type: string
+          - name: level
+            label: Reading level
+            type: string
+            description: For example "Middle Grade" or "Young Adult".
+          - name: featured
+            label: Show on home page
+            type: boolean
+          - name: orderUrl
+            label: Order link
+            type: string
+            description: Where the "order" button goes (a full https:// link).
+          - name: href
+            label: Internal link
+            type: string
+            hidden: true
+          - name: imageName
+            label: Image file name
+            type: string
+            hidden: true
