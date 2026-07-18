@@ -53,4 +53,6 @@ Add one photo per state. Name each file exactly as listed so the gallery can mat
 - `wisconsin.jpg`
 - `wyoming.jpg`
 
-Until a file is present, the tile shows a placeholder with the state name. Hover over any tile to see the state outline and name; click/tap to see the enlarged photo.
+Until a file is present, the tile shows a placeholder with the state name. Hover over any tile to see the state outline and name.
+
+Keep photos reasonably sized: the tiles render small, so aim for roughly 1200px on the longest edge and under ~300KB per file. Full-resolution phone photos (2-3MB each) slow the page down for visitors.

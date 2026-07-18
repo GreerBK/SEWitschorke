@@ -56,6 +56,11 @@ Two important notes about photos:
   rename it to `.jpg`. When sending a photo from your iPhone, use
   Settings → Camera → Formats → **"Most Compatible"**, or share/export it as
   JPEG first.
+- **Smaller files keep the site fast.** When sharing or exporting a photo,
+  pick **"Large"** rather than "Actual Size" if you're given the choice —
+  full-resolution phone photos are 2–3MB each and slow the gallery down for
+  visitors. (If you forget, no harm done — your site admin periodically
+  shrinks oversized photos.)
 - Square-ish photos look best — the gallery crops each photo to a square tile.
 
 States without a photo yet simply show a gray tile with the state's name, so
