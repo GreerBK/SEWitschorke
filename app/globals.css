@@ -248,9 +248,6 @@
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    scroll-behavior: smooth;
-  }
   ::selection {
     background-color: var(--sage-light);
     color: var(--teal-dark);
