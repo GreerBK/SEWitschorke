@@ -12,7 +12,7 @@ export function SiteFooter() {
           </p>
 
           {/* Social links */}
-          <div className="mt-8 flex items-center justify-center gap-8">
+          <div className="mt-8 flex items-center justify-center gap-4 md:gap-8">
             {[
               { href: "https://www.instagram.com/sewitschorke/", label: "Instagram" },
               { href: "https://www.tiktok.com/@sweetnsavory61", label: "TikTok" },
@@ -22,7 +22,7 @@ export function SiteFooter() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-xs tracking-[0.15em] uppercase text-sage-light/70 hover:text-primary-foreground transition-colors duration-300"
+                className="font-sans text-xs tracking-[0.15em] uppercase text-sage-light/70 hover:text-primary-foreground transition-colors duration-300 min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2"
                 aria-label={social.label}
               >
                 {social.label}
@@ -43,7 +43,7 @@ export function SiteFooter() {
               href="https://www.technextdoormn.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-sage-light/60 transition-colors underline underline-offset-2"
+              className="hover:text-sage-light/60 transition-colors underline underline-offset-2 inline-flex items-center min-h-[44px] px-2 -mx-2"
             >
               Tech Next Door
             </a>

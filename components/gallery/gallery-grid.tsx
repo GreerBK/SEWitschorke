@@ -15,9 +15,11 @@ function strokeWidthFromViewBox(viewBox: string, fraction = 0.02): number {
 function GalleryCard({
   item,
   priority = false,
+  idx = 0,
 }: {
   item: GalleryItem
   priority?: boolean
+  idx?: number
 }) {
   const [active, setActive] = useState(false)
   const [imgError, setImgError] = useState(false)
@@ -26,7 +28,8 @@ function GalleryCard({
 
   return (
     <div
-      className="relative aspect-square overflow-hidden rounded-sm group"
+      className="relative aspect-square overflow-hidden rounded-sm group motion-safe:animate-fade-in"
+      style={{ animationDelay: `${idx * 0.1}s`, animationFillMode: 'both' }}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
       role="figure"
@@ -63,7 +66,18 @@ function GalleryCard({
           preserveAspectRatio="xMidYMid meet"
           aria-hidden="true"
         >
-          <path d={outline.path} fill="white" fillOpacity="0.12" />
+          <path 
+            d={outline.path} 
+            fill="white" 
+            pathLength="1"
+            className="transition-all duration-1000 ease-out"
+            style={{ 
+              strokeDasharray: 1, 
+              strokeDashoffset: active ? 0 : 1,
+              fillOpacity: active ? 0.12 : 0,
+              transitionDelay: active ? '100ms' : '0ms'
+            }}
+          />
         </svg>
 
         <p className="font-display font-bold text-[11px] md:text-sm text-primary-foreground tracking-[0.15em] uppercase">
@@ -85,7 +99,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
       {items.map((item, idx) => (
-        <GalleryCard key={item.state} item={item} priority={idx === 0} />
+        <GalleryCard key={item.state} item={item} priority={idx === 0} idx={idx} />
       ))}
     </div>
   )
