@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:is(.dark *));
-
 /* ─── Typefaces ─── */
 
 @font-face {
@@ -66,13 +64,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Wolfpack';
-  src: url('/fonts/wolfpack-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
 @font-face {
   font-family: 'Above the Beyond Script';
@@ -101,6 +92,7 @@
 }
 
 :root {
+  color-scheme: light;
   --background: #faf9f6;
   --foreground: #1a2a2a;
   --card: #ffffff;
@@ -191,14 +183,6 @@
   animation: nav-underline-expand 0.25s ease-out forwards;
 }
 
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(28px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in-up {
-  animation: fade-in-up 0.7s ease-out both;
-}
-
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -207,12 +191,12 @@
   animation: fade-in 0.8s ease-out both;
 }
 
-@keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-32px); }
-  to { opacity: 1; transform: translateX(0); }
+@keyframes pan-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
-.animate-slide-in-left {
-  animation: slide-in-left 0.7s ease-out both;
+.animate-pan-zoom {
+  animation: pan-zoom 20s ease-out forwards;
 }
 
 @keyframes slide-in-right {
@@ -223,12 +207,8 @@
   animation: slide-in-right 0.7s ease-out both;
 }
 
-.delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
 
 @keyframes line-grow {
   from { transform: scaleX(0); }
@@ -237,6 +217,14 @@
 .animate-line-grow {
   transform-origin: center;
   animation: line-grow 1s ease-out both;
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-150%) skewX(-15deg); }
+  100% { transform: translateX(150%) skewX(-15deg); }
+}
+.animate-sweep {
+  animation: sweep 1.5s ease-in-out;
 }
 
 /* ─── Base ─── */
@@ -254,16 +242,3 @@
   }
 }
 
-/* ─── Utilities ─── */
-
-.rule-thin {
-  border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--border), transparent);
-}
-
-.rule-gold {
-  border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-}

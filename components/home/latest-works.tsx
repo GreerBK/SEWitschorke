@@ -30,7 +30,7 @@ export function LatestWorks() {
                   fill
                   className="object-cover rounded-sm"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/0 group-hover:from-white/10 group-hover:to-transparent transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-sweep" />
               </div>
             </Link>
           ))}

@@ -32,7 +32,7 @@ export function SiteHeader({ links }: SiteHeaderProps) {
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden mt-4 text-white hover:text-sage-light transition-colors"
+          className="md:hidden mt-4 mx-auto p-3 -m-3 text-white hover:text-sage-light transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
@@ -65,7 +65,7 @@ export function SiteHeader({ links }: SiteHeaderProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`relative inline-block pb-1 font-sans text-xs md:text-sm tracking-[0.2em] uppercase transition-colors duration-200 hover:text-sage-light ${
+                    className={`relative inline-flex items-center min-h-[44px] md:min-h-0 md:inline-block pb-1 font-sans text-xs md:text-sm tracking-[0.2em] uppercase transition-colors duration-200 hover:text-sage-light ${
                       isActive ? "text-white" : "text-sage-light"
                     }`}
                     onClick={() => setMenuOpen(false)}

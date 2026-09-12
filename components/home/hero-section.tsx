@@ -13,7 +13,7 @@ export function HeroSection() {
           src="/images/hero-waterfront.jpg"
           alt="Scenic waterfront view"
           fill
-          className="object-cover"
+          className="object-cover motion-safe:animate-pan-zoom origin-center"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-teal-dark/60 via-teal-dark/20 to-teal-dark/5" />
@@ -22,7 +22,7 @@ export function HeroSection() {
         <div className="relative z-10 h-full min-h-0 flex flex-col justify-end pl-4 md:pl-5 lg:pl-6">
           <div className="relative w-full bg-teal-dark rounded-t-[132px] md:rounded-t-[150px] lg:rounded-t-[178px] flex flex-col items-center justify-end pt-2 md:pt-3">
             {/* Author portrait — flush at bottom */}
-            <div className="relative w-full max-w-[260px] md:max-w-[280px] lg:max-w-[320px] aspect-[3/4] animate-fade-in">
+            <div className="relative w-full max-w-[260px] md:max-w-[280px] lg:max-w-[320px] aspect-[3/4] motion-safe:animate-fade-in">
               <Image
                 src="/images/about/author-portrait-home.png"
                 alt="SE Witschorke, Author"
@@ -48,7 +48,7 @@ export function HeroSection() {
         {/* Right panel — waterfront photo with quote */}
         <div className="relative z-10">
           {/* Quote — bottom-right */}
-          <div className="absolute bottom-10 right-8 md:right-12 lg:right-16 left-8 md:left-auto max-w-sm md:max-w-md lg:max-w-lg text-right animate-slide-in-right delay-200">
+          <div className="absolute bottom-10 right-8 md:right-12 lg:right-16 left-8 md:left-auto max-w-sm md:max-w-md lg:max-w-lg text-right motion-safe:animate-slide-in-right delay-200">
             <div className="relative pl-10 md:pl-12 lg:pl-14">
               <span className="absolute left-0 top-0 font-display text-5xl md:text-6xl lg:text-7xl text-sage-light/40 leading-none select-none -translate-y-0.5" aria-hidden>
                 &ldquo;
@@ -57,7 +57,7 @@ export function HeroSection() {
                 {quoteText}
               </blockquote>
             </div>
-            <div className="mt-4 ml-auto w-16 h-px bg-gradient-to-l from-gold to-transparent animate-line-grow delay-500" />
+            <div className="mt-4 ml-auto w-16 h-px bg-gradient-to-l from-gold to-transparent motion-safe:animate-line-grow delay-500" />
           </div>
         </div>
       </div>
@@ -70,13 +70,13 @@ export function HeroSection() {
             src="/images/hero-waterfront.jpg"
             alt="Scenic waterfront view"
             fill
-            className="object-cover"
+            className="object-cover motion-safe:animate-pan-zoom origin-center"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-teal-dark/70 via-teal-dark/30 to-teal-dark/10" />
 
           {/* Quote centered */}
-          <div className="absolute inset-0 flex flex-col items-center justify-end pb-8 px-6">
+          <div className="absolute inset-0 flex flex-col items-center justify-end pb-8 px-6 motion-safe:animate-slide-in-right delay-200">
             <div className="relative pl-8 max-w-[300px] text-left">
               <span className="absolute left-0 top-0 font-display text-4xl text-sage-light/50 leading-none select-none -translate-y-0.5" aria-hidden>
                 &ldquo;
@@ -90,7 +90,7 @@ export function HeroSection() {
 
         {/* Teal strip with portrait — symmetrical arch, inset from edges */}
         <div className="bg-teal-dark rounded-t-[calc(50vw_-_1rem)] mx-4 flex flex-col items-center pt-4">
-          <div className="relative w-40 h-48">
+          <div className="relative w-40 h-48 motion-safe:animate-fade-in">
             <Image
               src="/images/about/author-portrait-home.png"
               alt="SE Witschorke, Author"
